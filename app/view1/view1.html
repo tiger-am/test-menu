@@ -1,0 +1,43 @@
+<div class="container" ng-controller="View1Ctrl">
+    <div class="jumbotron">
+        <h1 class="text-center">Our restaurant's menu</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-2 col-lg-offset-10">
+            <div>Order By: {{orderProp}}</div>
+            <label class="form-group">
+                <input type="text" class="form-control" ng-model="query">
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <table ng-if="!loading" class="table">
+                <tr>
+                    <th ng-repeat="col in cols"
+                        ng-class="{'dropup': !isDesc}"
+                    >
+                        <button
+                            type="button"
+                            class="btn-link"
+                            ng-click="orderCol(col)"
+                        >
+                            {{col}}
+                        </button>
+                        <span ng-class="{'visibility-hidden': orderProp !== col}" class="caret"></span>
+                    </th>
+                </tr>
+
+                <tr ng-repeat="item in menu | filter:query | orderBy:orderProp">
+                    <td>{{item.title}}</td>
+                    <td>
+                        <img width="50" height="50" ng-src="{{item.image}}" alt=""></td>
+                    <td>{{item.rating}}</td>
+                    <td>{{item.price | currency}}</td>
+                </tr>
+            </table>
+
+            <div ng-if="loading">LOADING...</div>
+        </div>
+    </div>
+</div>
