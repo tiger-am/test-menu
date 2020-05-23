@@ -84,14 +84,26 @@
         return {
             $onInit: function () {
                 if (!$scope.params) {
+                    $scope.query = {
+                        $: '',
+                        title: '',
+                        image: '',
+                        rating: '',
+                        price: ''
+                    };
                     $scope.updateStorage();
                 } else {
                     $scope.isDesc = $scope.params.isDesc;
                     $scope.orderProp = $scope.params.orderProp;
                     $scope.query = $scope.params.query;
+                    $scope.isActiveFilters =
+                        !!$scope.query.$ ||
+                        !!$scope.query.title ||
+                        !!$scope.query.image ||
+                        !!$scope.query.rating ||
+                        !!$scope.query.price;
                 }
             }
         };
     }
-
 })();

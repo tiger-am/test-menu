@@ -7,13 +7,13 @@ angular.module('myApp.view1')
             modalInstance: "<",
             resolve: "<"
         },
-        controller: ['$scope',function($scope) {
-            this.$onInit = function() {
+        controller: ['$scope', function ($scope) {
+            this.$onInit = function () {
                 $scope.ingredients = this.resolve.modalData.ingredients;
                 $scope.title = this.resolve.modalData.title;
             };
 
-            $scope.handleClose = function() {
+            $scope.handleClose = function () {
                 this.modalInstance.close();
             };
 
