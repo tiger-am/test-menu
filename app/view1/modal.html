@@ -1,0 +1,25 @@
+<div class="modal-body">
+    <div class="modal-header">
+        <h3 class="modal-title">Ingregients!</h3>
+    </div>
+
+    <div class="modal-body" id="modal-body">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{title}}</h3>
+            </div>
+            <div class="panel-body" ng-if="!ingredients.length">
+                The dish does not have ingredients
+            </div>
+            <ul class="list-group" ng-if="ingredients.length">
+                <li class="list-group-item" ng-repeat="item in ingredients track by $index">
+                    {{item}}
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="handleClose()">OK</button>
+    </div>
+</div>
