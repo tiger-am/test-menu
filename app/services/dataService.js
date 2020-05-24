@@ -1,7 +1,7 @@
 (function () {
     "use strict";
 
-    angular.module('myApp.view1')
+    angular.module('app.page')
         .service('dataService', ['$http', function ($http) {
             this.getMenu = function () {
                 return $http.get('menu.json').then(function (data) {

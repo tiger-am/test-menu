@@ -1,8 +1,8 @@
 "use strict";
 
-angular.module('myApp.view1')
+angular.module('app.page')
     .component('myModal', {
-        templateUrl: 'view1/modal.html',
+        templateUrl: 'modal/modal.html',
         bindings: {
             modalInstance: "<",
             resolve: "<"
@@ -11,6 +11,7 @@ angular.module('myApp.view1')
             this.$onInit = function () {
                 $scope.ingredients = this.resolve.modalData.ingredients;
                 $scope.title = this.resolve.modalData.title;
+                $scope.image = this.resolve.modalData.image;
             };
 
             $scope.handleClose = function () {

@@ -1,12 +1,14 @@
-<div class="container" ng-controller="View1Ctrl">
+<div class="container" ng-controller="PageCtrl">
     <section class="jumbotron">
         <h1 class="text-center">Our restaurant's menu</h1>
     </section>
     <section class="row">
         <div class="col-lg-12">
-            <button type="button" class="btn btn-danger pull-right" ng-if="isActiveFilters" ng-click="resetFilter()">
+            <button type="button" class="btn btn-danger pull-right clear-btn" ng-if="isActiveFilters"
+                    ng-click="resetFilter()">
                 Clear Filters
             </button>
+
             <h3>Filters</h3>
 
             <label class="form-group">
@@ -46,18 +48,18 @@
                     >
                         <a
                             type="button"
-                            class=""
+                            class="link"
                             ng-click="orderCol(col)"
                         >
                             {{col}}
                         </a>
-                        <span ng-class="{'visibility-hidden': orderProp !== col}" class="caret"></span>
+                        <span ng-class="{'invisible': orderProp !== col}" class="caret"></span>
                     </th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="item in menu | filter:query | orderBy:orderProp:isDesc">
-                    <td><a ng-click="openModal(item.id)">{{item.title}}</a></td>
+                    <td><a ng-click="openModal(item.id)" class="link">{{item.title}}</a></td>
                     <td><img width="50" height="50" ng-src="{{item.image}}" alt=""></td>
                     <td>{{item.rating}}</td>
                     <td>{{item.price | currency}}</td>

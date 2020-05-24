@@ -1,18 +1,18 @@
 (function () {
     'use strict';
 
-    angular.module('myApp.view1', ['ngRoute'])
+    angular.module('app.page', ['ngRoute'])
         .config(['$routeProvider', function ($routeProvider) {
-            $routeProvider.when('/view1', {
-                templateUrl: 'view1/view1.html',
-                controller: 'View1Ctrl',
+            $routeProvider.when('/page', {
+                templateUrl: 'page/page.html',
+                controller: 'PageCtrl',
             });
         }])
-        .controller('View1Ctrl', ['$uibModal', '$scope', 'dataService', 'localStorageService', menuCtrl]);
+        .controller('PageCtrl', ['$uibModal', '$scope', 'dataService', 'localStorageService', menuCtrl]);
 
     function menuCtrl($uibModal, $scope, dataService, localStorageService) {
         $scope.cols = ['title', 'image', 'rating', 'price'];
-        $scope.params = localStorageService.getLocalData();
+        $scope.params = localStorageService.getMenuData();
         $scope.isDesc = false;
         $scope.loading = true;
         $scope.orderProp = 'none';
@@ -67,7 +67,7 @@
                 orderProp: $scope.orderProp,
                 query: $scope.query
             };
-            localStorageService.setLocalData($scope.params);
+            localStorageService.setMenuData($scope.params);
         };
 
         $scope.resetFilter = function () {

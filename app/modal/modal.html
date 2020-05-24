@@ -1,12 +1,16 @@
 <div class="modal-body">
     <div class="modal-header">
-        <h3 class="modal-title">Ingregients!</h3>
+        <h3 class="modal-title">{{title}}</h3>
     </div>
 
-    <div class="modal-body" id="modal-body">
+    <div class="modal-body modal-img">
+        <img ng-src="{{image}}" alt="">
+    </div>
+
+    <div class="modal-body">
         <div class="panel panel-success">
             <div class="panel-heading">
-                <h3 class="panel-title">{{title}}</h3>
+                <h3 class="panel-title">Ingredients</h3>
             </div>
             <div class="panel-body" ng-if="!ingredients.length">
                 The dish does not have ingredients
@@ -17,8 +21,8 @@
                 </li>
             </ul>
         </div>
-
     </div>
+
     <div class="modal-footer">
         <button class="btn btn-primary" type="button" ng-click="handleClose()">OK</button>
     </div>
